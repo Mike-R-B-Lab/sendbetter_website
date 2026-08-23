@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>SendBetter | Business Automation &amp; AI Systems</title>
+<meta name="description" content="SendBetter builds practical automation, AI agents and software systems that help businesses save time, respond faster and stop losing opportunities.">
+<meta property="og:title" content="SendBetter | Business Automation &amp; AI Systems">
+<meta property="og:description" content="I find the repetitive work inside your business and build the system that handles it. Built by Michael Laberge, Montreal.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_CA">
+<meta property="og:image" content="assets/michael.jpeg">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="_ds/modernist-74c4808b-48da-4e06-be00-6f68cf7d0d0c/styles.css">
+<script src="_ds/modernist-74c4808b-48da-4e06-be00-6f68cf7d0d0c/_ds_bundle.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"SendBetter","description":"Practical automation, AI agents and software systems for businesses.","founder":{"@type":"Person","name":"Michael Laberge","jobTitle":"Founder"},"address":{"@type":"PostalAddress","addressLocality":"Montreal","addressRegion":"QC","addressCountry":"CA"},"telephone":"+1-438-401-7040","email":"michael@sendbetter.ai","url":"https://sendbetter.ai","areaServed":"CA","availableLanguage":["en","fr"]}</script>
+<style>
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body { margin: 0; overflow-x: hidden; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--color-text) 25%, transparent); }
+input::placeholder, textarea::placeholder { color: color-mix(in srgb, var(--color-text) 35%, transparent); font-size: 14px; }
+</style>
+</helmet>
+
+<div style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); max-width: 100vw; overflow-x: clip;">
+
+  <header style="position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--color-bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 2px solid var(--color-divider);">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 clamp(20px, 5vw, 64px); height: 72px; max-width: 1680px; margin: 0 auto;">
+      <a href="#top" style="font-family: var(--font-heading); font-weight: 800; font-size: 17px; letter-spacing: -0.02em; color: var(--color-text); text-decoration: none;">sendbetter.ai</a>
+      <nav aria-label="Primary" style="display: flex; align-items: center; gap: clamp(16px, 2.4vw, 34px);">
+        <a href="#services" style="display: none; font-size: 14px; color: var(--color-text); text-decoration: none;" data-navlink="1">{{ t.nav.services }}</a>
+        <a href="#work" style="display: none; font-size: 14px; color: var(--color-text); text-decoration: none;" data-navlink="1">{{ t.nav.work }}</a>
+        <a href="#about" style="display: none; font-size: 14px; color: var(--color-text); text-decoration: none;" data-navlink="1">{{ t.nav.about }}</a>
+        <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-family: var(--font-heading); font-weight: 800;">
+          <button type="button" onClick="{{ setEn }}" aria-label="English" style="background: none; border: 0; padding: 2px 2px; cursor: pointer; font: inherit; color: {{ enColor }};">EN</button>
+          <span aria-hidden="true" style="opacity: .35;">/</span>
+          <button type="button" onClick="{{ setFr }}" aria-label="Français" style="background: none; border: 0; padding: 2px 2px; cursor: pointer; font: inherit; color: {{ frColor }};">FR</button>
+        </div>
+        <a class="btn btn-primary" href="#contact" style="padding: 10px 16px; font-size: 13px;">{{ t.nav.cta }}</a>
+        <button type="button" data-menutoggle="1" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpen }}" aria-controls="mobile-menu" style="display: none; background: none; border: 0; padding: 4px 0 4px 4px; cursor: pointer; font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text);">{{ menuLabel }}</button>
+      </nav>
+    </div>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <nav id="mobile-menu" aria-label="Mobile" style="border-top: 2px solid var(--color-divider); padding: 6px clamp(20px, 5vw, 64px) 14px; display: flex; flex-direction: column;">
+        <a href="#services" onClick="{{ closeMenu }}" style="padding: 14px 0; border-bottom: 1px solid color-mix(in srgb, var(--color-text) 18%, transparent); font-family: var(--font-heading); font-weight: 800; font-size: 18px; letter-spacing: -0.02em; color: var(--color-text); text-decoration: none;">{{ t.nav.services }}</a>
+        <a href="#work" onClick="{{ closeMenu }}" style="padding: 14px 0; border-bottom: 1px solid color-mix(in srgb, var(--color-text) 18%, transparent); font-family: var(--font-heading); font-weight: 800; font-size: 18px; letter-spacing: -0.02em; color: var(--color-text); text-decoration: none;">{{ t.nav.work }}</a>
+        <a href="#about" onClick="{{ closeMenu }}" style="padding: 14px 0; font-family: var(--font-heading); font-weight: 800; font-size: 18px; letter-spacing: -0.02em; color: var(--color-text); text-decoration: none;">{{ t.nav.about }}</a>
+      </nav>
+    </sc-if>
+  </header>
+
+  <main id="top">
+
+    <section style="padding: clamp(36px, 6vh, 72px) clamp(20px, 5vw, 64px) clamp(48px, 7vh, 88px); max-width: 1680px; margin: 0 auto;">
+      <div style="display: flex; align-items: baseline; gap: 14px; font-family: var(--font-heading); font-weight: 800; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: clamp(20px, 3vh, 36px);">
+        <span>{{ t.hero.tag }}</span>
+        <span style="flex: 1; height: 2px; background: var(--color-divider);"></span>
+        <span style="color: color-mix(in srgb, var(--color-text) 55%, transparent);">Montréal, QC</span>
+      </div>
+      <h1 data-reveal="1" style="font-size: clamp(40px, 7.4vw, 104px); line-height: 1.02; letter-spacing: -0.035em; margin: 0; max-width: 17ch; text-wrap: balance;">{{ t.hero.title }}</h1>
+      <p data-reveal="1" style="margin: clamp(22px, 3vh, 32px) 0 0; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.55; max-width: 60ch; color: color-mix(in srgb, var(--color-text) 78%, transparent); text-wrap: pretty;">{{ t.hero.sub }}</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: clamp(24px, 3.5vh, 36px);">
+        <a class="btn btn-primary" href="#contact" style="padding: 15px 22px; font-size: 15px;">{{ t.hero.cta1 }}</a>
+        <a class="btn btn-secondary" href="#services" style="padding: 15px 22px; font-size: 15px;">{{ t.hero.cta2 }}</a>
+      </div>
+      <p style="margin: clamp(26px, 4vh, 40px) 0 0; font-size: 13px; color: color-mix(in srgb, var(--color-text) 55%, transparent);">{{ t.hero.small }}</p>
+    </section>
+
+    <section id="services" ref="{{ sectionRef }}" aria-label="Services" style="border-top: 2px solid var(--color-divider); position: relative;">
+      
+    <div ref="{{ pinRef }}">
+        <div ref="{{ headerRef }}" style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: clamp(16px, 2.5vh, 26px) clamp(20px, 5vw, 64px) clamp(14px, 2vh, 22px); max-width: 1680px; margin: 0 auto;">
+          <h2 ref="{{ titleRef }}" style="font-size: clamp(38px, 9vw, 95px); line-height: 1.02; letter-spacing: -0.035em; margin: 0;">{{ t.services.title }}</h2>
+        </div>
+        <div ref="{{ trackRef }}" style="display: flex; gap: clamp(14px, 1.4vw, 26px); padding: 0 clamp(20px, 5vw, 64px); will-change: transform;">
+          <sc-for list="{{ services }}" as="s" hint-placeholder-count="3">
+            <article style="border: 2px solid var(--color-divider); background: var(--color-surface); padding: clamp(24px, 3vw, 40px); display: flex; flex-direction: column; gap: 20px;">
+              <div style="display: flex; align-items: baseline; gap: 14px;">
+                <span style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; color: var(--color-accent);">{{ s.num }}</span>
+                <span style="font-family: var(--font-heading); font-weight: 800; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 60%, transparent);">{{ s.eyebrow }}</span>
+              </div>
+              <h3 style="font-size: clamp(30px, 3.6vw, 50px); line-height: 1.02; letter-spacing: -0.032em; margin: 0; max-width: 14ch;">{{ s.title }}</h3>
+              <p style="margin: 0; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.4; letter-spacing: -0.015em; max-width: 24ch;">{{ s.benefit }}</p>
+              <p style="margin: auto 0 0; font-family: var(--font-heading); font-weight: 800; font-size: clamp(12.5px, 1.05vw, 14px); line-height: 1.6; letter-spacing: -0.01em; color: var(--color-accent-700); border-top: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider); padding: 12px 0;">{{ s.flow }}</p>
+              <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px;">
+                <sc-for list="{{ s.items }}" as="it" hint-placeholder-count="4">
+                  <li style="font-size: 12px; line-height: 1; padding: 7px 10px; border: 1px solid color-mix(in srgb, var(--color-text) 22%, transparent); color: color-mix(in srgb, var(--color-text) 68%, transparent);">{{ it }}</li>
+                </sc-for>
+              </ul>
+            </article>
+          </sc-for>
+        </div>
+        <div ref="{{ spacerRef }}" aria-hidden="true"></div>
+      </div></section>
+
+    <section aria-label="How it works" style="border-top: 2px solid var(--color-divider); padding: clamp(56px, 9vh, 110px) clamp(20px, 5vw, 64px); max-width: 1680px; margin: 0 auto;">
+      <h2 data-reveal="1" style="font-size: clamp(28px, 3.6vw, 52px); letter-spacing: -0.03em; margin: 0 0 clamp(32px, 5vh, 56px); max-width: 20ch;">{{ t.how.title }}</h2>      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0;">
+        <sc-for list="{{ steps }}" as="st" hint-placeholder-count="3">
+          <div data-reveal="1" style="padding: 0 26px 34px 0;">
+            <span style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; color: var(--color-accent);">{{ st.num }}</span>
+            <h3 style="font-size: clamp(20px, 1.9vw, 26px); letter-spacing: -0.02em; margin: 14px 0 10px;">{{ st.title }}</h3>
+            <p style="margin: 0; font-size: 15px; line-height: 1.6; max-width: 34ch; color: color-mix(in srgb, var(--color-text) 75%, transparent);">{{ st.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section id="work" aria-label="Work" style="border-top: 2px solid var(--color-divider); padding: clamp(56px, 9vh, 110px) clamp(20px, 5vw, 64px); max-width: 1680px; margin: 0 auto;">
+      <h2 data-reveal="1" style="font-size: clamp(28px, 3.6vw, 52px); letter-spacing: -0.03em; margin: 0 0 clamp(32px, 5vh, 56px); max-width: 26ch;">{{ t.work.title }}</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 0;">
+        <sc-for list="{{ cases }}" as="c" hint-placeholder-count="4">
+          <article data-reveal="1" style="border: 2px solid var(--color-divider); padding: clamp(20px, 2.2vw, 30px); display: flex; flex-direction: column; gap: 14px;">
+            <div style="height: 88px; display: flex; align-items: center;">
+              <sc-if value="{{ c.logo }}" hint-placeholder-val="{{ true }}">
+                <span class="grayscale" style="display: block; height: 88px; width: 180px; overflow: hidden; background: {{ c.logoBg }}; padding: {{ c.logoPad }};">
+                  <img src="{{ c.logo }}" alt="{{ c.name }}" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: contain; object-position: left center;">
+                </span>
+              </sc-if>
+            </div>
+            <h3 style="font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin: 0; color: color-mix(in srgb, var(--color-text) 50%, transparent);">{{ c.name }}</h3>
+            <div style="margin-top: 6px; border-top: 2px solid var(--color-divider); padding-top: 16px;">
+              <p style="margin: 0; font-family: var(--font-heading); font-weight: 800; font-size: clamp(32px, 3vw, 46px); line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums;">{{ c.value }}<sc-if value="{{ c.suffix }}" hint-placeholder-val="{{ true }}"><span style="margin-left: 0.22em; font-size: 38px">{{ c.suffix }}</span></sc-if></p>
+              <p style="margin: 8px 0 0; font-family: var(--font-heading); font-weight: 800; font-size: 11px; letter-spacing: 0.11em; text-transform: uppercase; color: var(--color-accent-700);">{{ c.unit }}</p>
+            </div>
+            <p style="margin: 0; font-size: 14.5px; line-height: 1.55; max-width: 32ch; color: color-mix(in srgb, var(--color-text) 70%, transparent);">{{ c.note }}</p>
+          </article>
+        </sc-for>
+      </div>
+    </section>
+
+    
+
+    <section id="about" aria-label="About" style="border-top: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider); padding: clamp(56px, 9vh, 110px) clamp(20px, 5vw, 64px); max-width: 1680px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(28px, 4vw, 64px); align-items: center;">
+        
+        <figure class="grayscale" data-reveal="1" ref="{{ photoRef }}" style="margin: 0; position: relative; min-height: 420px; overflow: hidden; background: var(--color-surface); height: 500px">
+          <img src="assets/michael.jpeg" alt="Michael Laberge, founder of SendBetter, Montreal" loading="lazy" decoding="async" style="position: absolute; inset: 0; width: 553px; height: 517px; object-fit: contain; object-position: 50% 4%; left: 67px; top: -17px">
+        </figure><div data-reveal="1" ref="{{ aboutTextRef }}">
+          <h2 style="font-size: clamp(28px, 3.6vw, 52px); letter-spacing: -0.03em; margin: 0 0 26px; max-width: 16ch;">{{ t.about.title }}</h2>
+          <p style="margin: 0 0 16px; font-size: 16.5px; line-height: 1.65; max-width: 52ch;">{{ t.about.p1 }}</p>
+          <p style="margin: 0 0 16px; font-size: 16.5px; line-height: 1.65; max-width: 52ch;">{{ t.about.p2 }}</p>
+          <p style="margin: 0 0 16px; font-size: 16.5px; line-height: 1.65; max-width: 52ch;">{{ t.about.p3 }}</p>
+          <p style="margin: 0 0 28px; font-size: 16.5px; line-height: 1.65; max-width: 52ch;">{{ t.about.p4 }}</p>
+          <p style="margin: 0; font-family: var(--font-heading); font-weight: 800; font-size: clamp(17px, 1.7vw, 22px); line-height: 1.4; letter-spacing: -0.02em; max-width: 26ch; border-top: 2px solid var(--color-divider); padding-top: 24px;">{{ t.about.punch }}</p>
+        </div>
+      </div>
+    </section><section id="contact" aria-label="Contact" style="padding: clamp(56px, 9vh, 110px) clamp(20px, 5vw, 64px); max-width: 1680px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: clamp(40px, 6vw, 120px); align-items: start;">
+        <div>
+          <h2 data-reveal="1" style="font-size: clamp(30px, 4.2vw, 62px); line-height: 1.03; letter-spacing: -0.035em; margin: 0 0 24px; max-width: 15ch;">{{ t.contact.title }}</h2>
+          <p style="margin: 0 0 32px; font-size: 17px; line-height: 1.6; max-width: 46ch; color: color-mix(in srgb, var(--color-text) 78%, transparent);">{{ t.contact.sub }}</p>
+          <div style="display: flex; flex-direction: column; gap: 0; border-top: 2px solid var(--color-divider);">
+            <a href="tel:+14384017040" style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 18px 0; border-bottom: 2px solid var(--color-divider); text-decoration: none; color: var(--color-text);">
+              <span style="font-family: var(--font-heading); font-weight: 800; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent);">{{ t.contact.callLabel }}</span>
+              <span style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(16px, 1.4vw, 20px); letter-spacing: -0.02em;">(438) 401-7040</span>
+            </a>
+            <a href="mailto:michael@sendbetter.ai" style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 18px 0; border-bottom: 2px solid var(--color-divider); text-decoration: none; color: var(--color-text);">
+              <span style="font-family: var(--font-heading); font-weight: 800; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent);">Email</span>
+              <span style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(14px, 1.2vw, 18px); letter-spacing: -0.02em;">michael@sendbetter.ai</span>
+            </a>
+          </div>
+        </div>
+
+        <form onSubmit="{{ submit }}" style="display: grid; gap: 0;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); column-gap: clamp(24px, 3vw, 48px);">
+            <label style="display: grid; gap: 4px; padding: 16px 0 12px; border-bottom: 2px solid var(--color-divider);">
+            <span style="font-family: var(--font-heading); font-weight: 800; font-size: 10.5px; letter-spacing: 0.13em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent);">{{ t.form.name }}</span>
+            <input name="name" type="text" required="required" autoComplete="name" style="width: 100%; border: 0; background: transparent; padding: 4px 0; font-family: var(--font-body); font-size: 15px; color: var(--color-text);">
+          </label>
+          <label style="display: grid; gap: 4px; padding: 16px 0 12px; border-bottom: 2px solid var(--color-divider);">
+            <span style="font-family: var(--font-heading); font-weight: 800; font-size: 10.5px; letter-spacing: 0.13em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent);">{{ t.form.email }}</span>
+            <input name="email" type="email" required="required" autoComplete="email" style="width: 100%; border: 0; background: transparent; padding: 4px 0; font-family: var(--font-body); font-size: 15px; color: var(--color-text);">
+          </label>
+          <label style="display: grid; gap: 4px; padding: 16px 0 12px; border-bottom: 2px solid var(--color-divider);">
+            <span style="font-family: var(--font-heading); font-weight: 800; font-size: 10.5px; letter-spacing: 0.13em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent);">{{ t.form.phone }}</span>
+            <input name="phone" type="tel" autoComplete="tel" style="width: 100%; border: 0; background: transparent; padding: 4px 0; font-family: var(--font-body); font-size: 15px; color: var(--color-text);">
+          </label>
+          <label style="display: grid; gap: 4px; padding: 16px 0 12px; border-bottom: 2px solid var(--color-divider);">
+            <span style="font-family: var(--font-heading); font-weight: 800; font-size: 10.5px; letter-spacing: 0.13em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent);">{{ t.form.company }}</span>
+            <input name="company" type="text" autoComplete="organization" style="width: 100%; border: 0; background: transparent; padding: 4px 0; font-family: var(--font-body); font-size: 15px; color: var(--color-text);">
+          </label>
+          </div>
+          <label style="display: grid; gap: 4px; padding: 16px 0 12px; border-bottom: 2px solid var(--color-divider);">
+            <span style="font-family: var(--font-heading); font-weight: 800; font-size: 10.5px; letter-spacing: 0.13em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent);">{{ t.form.sector }}</span>
+            <input name="sector" type="text" placeholder="{{ t.form.sectorHint }}" style="width: 100%; border: 0; background: transparent; padding: 4px 0; font-family: var(--font-body); font-size: 15px; color: var(--color-text);">
+          </label>
+          <label style="display: grid; gap: 4px; padding: 16px 0 12px; border-bottom: 2px solid var(--color-divider);">
+            <span style="font-family: var(--font-heading); font-weight: 800; font-size: 10.5px; letter-spacing: 0.13em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent);">{{ t.form.message }}</span>
+            <textarea name="message" rows="4" required="required" style="width: 100%; border: 0; background: transparent; padding: 4px 0; resize: vertical; font-family: var(--font-body); font-size: 15px; line-height: 1.5; color: var(--color-text);"></textarea>
+          </label>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding-top: 22px;">
+            <button class="btn btn-primary" type="submit" style="padding: 15px 22px; font-size: 15px;">{{ sendLabel }}</button>
+            <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+              <span style="font-size: 13px; color: var(--color-accent-700);">{{ sentMessage }}</span>
+            </sc-if>
+            <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+              <span style="font-size: 13px; color: var(--color-accent-700);">{{ t.form.error }}</span>
+            </sc-if>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer style="border-top: 2px solid var(--color-divider); padding: clamp(32px, 5vh, 52px) clamp(20px, 5vw, 64px);">
+    <div style="max-width: 1680px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 20px 40px; font-size: 13px;">
+      <span style="font-family: var(--font-heading); font-weight: 800; letter-spacing: -0.02em; font-size: 15px;">SendBetter</span>
+      <span style="color: color-mix(in srgb, var(--color-text) 60%, transparent);">Montreal, Quebec</span>
+      <a href="tel:+14384017040" style="color: var(--color-text); text-decoration: none;">(438) 401-7040</a>
+      <a href="mailto:michael@sendbetter.ai" style="color: var(--color-text); text-decoration: none;">michael@sendbetter.ai</a>
+      <span style="display: flex; align-items: center; gap: 6px; font-family: var(--font-heading); font-weight: 800;">
+        <button type="button" onClick="{{ setEn }}" style="background: none; border: 0; padding: 0; cursor: pointer; font: inherit; color: {{ enColor }};">EN</button>
+        <span aria-hidden="true" style="opacity: .35;">/</span>
+        <button type="button" onClick="{{ setFr }}" style="background: none; border: 0; padding: 0; cursor: pointer; font: inherit; color: {{ frColor }};">FR</button>
+      </span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;web3formsKey&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;3ef2cfed-c4ba-419b-809b-9d7c21197e36&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact form&quot;},&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;fr&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;'en' | 'fr'&quot;,&quot;section&quot;:&quot;Language&quot;},&quot;autoDetectLanguage&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Language&quot;}}">
+const COPY = {
+  en: {
+    nav: { services: "Services", work: "Work", about: "About", cta: "Free automation audit" },
+    hero: {
+      tag: "Automation & software systems",
+      title: "I save you time and make you money.",
+      sub: "I find the repetitive work inside your business and automate it: lead follow-up, phone calls, reviews, paperwork, and everything in between.",
+      small: "SendBetter. Built by Michael Laberge, Montreal.",
+      cta1: "Get a free automation audit",
+      cta2: "See what I build"
+    },
+    services: { title: "What I build" },
+    how: {
+      title: "Three steps."
+    },
+    work: { title: "Work delivered." },
+    about: {
+      title: "Who you work with.",
+      p1: "I'm Michael Laberge, founder of SendBetter, based in Montreal.",
+      p2: "I build automation and software systems for businesses, and I do the implementation myself.",
+      p3: "My background is in mechanical engineering, business intelligence, and operations. Before SendBetter, I worked on forecasting and operational systems at Apollo Scooters.",
+      p4: "I also completed MIT's Applied Data Science Program.",
+      punch: "You deal directly with the person building your system."
+    },
+    contact: {
+      title: "Losing time on repetitive work?",
+      sub: "Tell me what's taking too much time, costing you leads, or getting done manually. I'll tell you whether I can automate it.",
+      callLabel: "Call Michael"
+    },
+    form: {
+      name: "Name", email: "Email", phone: "Phone", company: "Company",
+      sector: "Type of business", sectorHint: "Construction, clinic, ecommerce…",
+      message: "What's taking too much time?",
+      send: "Get a free automation audit",
+      sending: "Sending…",
+      error: "Something went wrong. Email me at michael@sendbetter.ai.",
+      sentDirect: "Thanks. I'll reply within a day.",
+      sent: "Opening your email. Send it and I'll reply within a day."
+    },
+    steps: [
+      { num: "01", title: "Find the bottleneck", body: "We look at where time, leads, or money are being lost." },
+      { num: "02", title: "Build the system", body: "I design and implement the automation around the tools you already use." },
+      { num: "03", title: "Hand it over", body: "You get the working system, documentation, and training if you want it." }
+    ],
+    services_list: [
+      { num: "01", eyebrow: "Get more leads", title: "Speed-to-lead",
+        flow: "Lead comes in → replied in seconds → qualified → booked",
+        items: ["Missed calls", "Web leads", "SMS follow-up", "Booking"],
+        benefit: "Respond while the lead is still looking." },
+      { num: "02", eyebrow: "Answer every call", title: "AI Receptionist",
+        flow: "Missed call → AI answers → qualifies caller → texts your team",
+        items: ["Qualify callers", "Flag urgent calls", "Book appointments", "Send summaries"],
+        benefit: "Stop losing opportunities because nobody picked up." },
+      { num: "03", eyebrow: "Get more reviews", title: "Google Reviews",
+        flow: "Job completed → customer receives a text → review comes in",
+        items: ["Personalized requests", "Automatic reminders", "Works with your CRM"],
+        benefit: "Turn completed jobs into more public proof." },
+      { num: "04", eyebrow: "Automate the work", title: "Business workflows",
+        flow: "Email comes in → CRM updated → document generated → team notified",
+        items: ["Paperwork", "Data entry", "CRM updates", "Reporting"],
+        benefit: "Remove the work nobody should be doing manually." },
+      { num: "05", eyebrow: "Build & teach", title: "Custom systems",
+        flow: "Your process → your system → your team runs it",
+        items: ["Internal apps", "Dashboards", "Integrations", "Training"],
+        benefit: "Software built around how your business actually works." }
+    ],
+    cases_meta: [
+      { unit: "Google reviews", unitSuffix: "in 2 months", suffix: "", note: "Automated Google review requests." },
+      { unit: "Saved every week", suffix: "", note: "Automated repetitive project-management work." },
+      { unit: "Backorders", suffix: "", note: "Built forecasting and supply-chain systems." },
+      { unit: "Sales funnels, built and automated", suffix: "funnels", note: "Automated sales follow-up across both products." }    ]
+  },
+  fr: {
+    nav: { services: "Services", work: "Réalisations", about: "À propos", cta: "Audit gratuit" },
+    hero: {
+      tag: "Automatisation & systèmes logiciels",
+      title: "Je vous fais gagner du temps et de l'argent.",
+      sub: "Je trouve le travail répétitif dans votre entreprise et je l'automatise : relance des leads, appels manqués, avis Google, paperasse, et tout le reste.",
+      small: "SendBetter. Bâti par Michael Laberge, Montréal.",
+      cta1: "Obtenir un audit gratuit",
+      cta2: "Voir ce que je bâtis"
+    },
+    services: { title: "Ce que je bâtis" },
+    how: {
+      title: "Trois étapes."
+    },
+    work: { title: "Travaux accomplis." },
+    about: {
+      title: "Avec qui vous travaillez.",
+      p1: "Je suis Michael Laberge, fondateur de SendBetter, basé à Montréal.",
+      p2: "Je bâtis des systèmes d'automatisation et de logiciel pour les entreprises et je fais l'implantation moi-même.",
+      p3: "Mon parcours : génie mécanique, intelligence d'affaires et opérations. Avant SendBetter, je travaillais sur les systèmes de prévision et d'opérations chez Apollo Scooters.",
+      p4: "J'ai aussi complété le Applied Data Science Program du MIT.",
+      punch: "Vous parlez directement à la personne qui bâtit votre système."
+    },
+    contact: {
+      title: "Du temps perdu sur du travail répétitif?",
+      sub: "Dites-moi ce qui prend trop de temps, ce qui vous coûte des leads, ou ce qui se fait encore à la main. Je vous dis si je peux l'automatiser.",
+      callLabel: "Appeler Michael"
+    },
+    form: {
+      name: "Nom", email: "Courriel", phone: "Téléphone", company: "Entreprise",
+      sector: "Type d'entreprise", sectorHint: "Construction, clinique, e-commerce…",
+      message: "Qu'est-ce qui prend trop de temps?",
+      send: "Obtenir un audit gratuit",
+      sending: "Envoi…",
+      error: "Une erreur est survenue. Écrivez-moi à michael@sendbetter.ai.",
+      sentDirect: "Merci. Je réponds en moins d'une journée.",
+      sent: "Votre courriel s'ouvre. Envoyez-le et je réponds en moins d'une journée."
+    },
+    steps: [
+      { num: "01", title: "Trouver le goulot", body: "On regarde où le temps, les leads ou l'argent se perdent." },
+      { num: "02", title: "Bâtir le système", body: "Je conçois et j'implante l'automatisation autour des outils que vous utilisez déjà." },
+      { num: "03", title: "Vous le remettre", body: "Vous repartez avec le système fonctionnel, la documentation, et la formation si vous la voulez." }
+    ],
+    services_list: [
+      { num: "01", eyebrow: "Plus de leads", title: "Suivi de vos leads",
+        flow: "Lead entre → réponse en secondes → qualifié → rendez-vous pris",
+        items: ["Appels manqués", "Leads web", "Relance SMS", "Prise de rendez-vous"],
+        benefit: "Répondez pendant que le client magasine encore." },
+      { num: "02", eyebrow: "Répondre à chaque appel", title: "Réceptionniste IA",
+        flow: "Appel manqué → l'IA répond → qualifie → texte à l'équipe",
+        items: ["Qualifier les appels", "Détecter les urgences", "Prendre les rendez-vous", "Envoyer les résumés"],
+        benefit: "Arrêtez de perdre des clients parce que personne n'a répondu." },
+      { num: "03", eyebrow: "Plus d'avis", title: "Avis Google",
+        flow: "Job terminée → le client reçoit un texto → l'avis entre",
+        items: ["Demandes personnalisées", "Rappels automatiques", "Branché à votre CRM"],
+        benefit: "Transformez vos jobs terminées en preuve publique." },
+      { num: "04", eyebrow: "Automatiser le travail", title: "Processus d'affaires",
+        flow: "Courriel reçu → CRM mis à jour → document généré → équipe avisée",
+        items: ["Paperasse", "Saisie de données", "Mises à jour CRM", "Rapports"],
+        benefit: "Enlevez le travail que personne ne devrait faire à la main." },
+      { num: "05", eyebrow: "Bâtir & enseigner", title: "Logiciel sur mesure",
+        flow: "Votre processus → votre système → votre équipe le gère",
+        items: ["Applications internes", "Tableaux de bord", "Intégrations", "Formation"],
+        benefit: "Un logiciel bâti selon votre façon de travailler." }
+    ],
+    cases_meta: [
+      { unit: "Avis Google", unitSuffix: "en 2 mois", suffix: "", note: "Demandes d'avis Google automatisées." },
+      { unit: "Économisées chaque semaine", suffix: "", note: "Gestion de projet répétitive automatisée." },
+      { unit: "Commandes en attente", suffix: "", note: "Systèmes de prévision et de chaîne d'approvisionnement." },
+      { unit: "Tunnels de vente, bâtis et automatisés", suffix: "systèmes", note: "Relance des ventes automatisée pour les deux produits." }
+    ]
+  }
+};
+
+const CASES = [
+  { name: "Élia Médico Esthétique", value: "15 → 80", logo: "assets/elia.png", logoBg: "transparent", logoPad: "0" },
+  { name: "Attorre & Fils", value: "10 h", logo: "assets/attorre.jpg", logoBg: "#fff", logoPad: "12px" },
+  { name: "Apollo Scooters", value: "600 → 15", logo: "assets/apollo.png", logoBg: "transparent", logoPad: "0" },
+  { name: "Mentors Éducation", value: "2", logo: "assets/mentors.jpeg", logoBg: "transparent", logoPad: "0" }
+];
+
+class Component extends DCLogic {
+  state = { lang: this.initialLang(), active: 0, sent: false, menuOpen: false };
+
+  initialLang() {
+    const p = this.props || {};
+    try {
+      const stored = window.localStorage.getItem("sb-lang");
+      if (stored === "en" || stored === "fr") return stored;
+    } catch (e) {}
+    if (p.autoDetectLanguage !== false) {
+      const n = ((navigator.languages && navigator.languages[0]) || navigator.language || "en").toLowerCase();
+      if (n.indexOf("fr") === 0) return "fr";
+    }
+    return p.defaultLang || "en";
+  }
+
+  setLang = (lang) => {
+    try { window.localStorage.setItem("sb-lang", lang); } catch (e) {}
+    document.documentElement.lang = lang;
+    this.setState({ lang });
+  };
+
+  componentDidMount() {
+    this.sectionRef = this.sectionRef || React.createRef();
+    document.documentElement.lang = this.state.lang;
+    this.mq = window.matchMedia("(min-width: 900px)");
+    this.onResize = () => this.layout();
+    this.onScroll = () => {
+      if (this.raf) return;
+      this.raf = requestAnimationFrame(() => { this.raf = null; this.update(); });
+    };
+    window.addEventListener("resize", this.onResize);
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+    this.layout();
+    this.reveal();
+    setTimeout(() => this.sizePhoto(), 300);
+    window.addEventListener("load", () => this.sizePhoto());    this.navLinks();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.onResize);
+    window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener("resize", this.onNavResize);
+    if (this.io) this.io.disconnect();
+  }
+
+  navLinks() {
+    // links are hidden by default so they never flash on narrow screens
+    this.onNavResize = () => {
+      const wide = window.innerWidth >= 760;
+      document.querySelectorAll("[data-navlink]").forEach((a) => { a.style.display = wide ? "inline" : "none"; });
+      document.querySelectorAll("[data-menutoggle]").forEach((b) => { b.style.display = wide ? "none" : "inline-flex"; });
+      if (wide && this.state.menuOpen) this.setState({ menuOpen: false });
+    };
+    this.onNavResize();
+    window.addEventListener("resize", this.onNavResize);
+  }
+
+  toggleMenu = () => this.setState((s) => ({ menuOpen: !s.menuOpen }));
+  closeMenu = () => this.setState({ menuOpen: false });
+
+  sizePhoto() {
+    return;
+  }
+
+  layout() {
+    const sec = this.sectionRef && this.sectionRef.current;
+    const pin = this.pinRef && this.pinRef.current;
+    const tr = this.trackRef && this.trackRef.current;
+    if (!sec || !pin || !tr) return;
+    const cards = Array.prototype.slice.call(tr.children);
+    this.desktop = this.mq.matches;
+    const hdr = this.headerRef && this.headerRef.current;
+    const sp = this.spacerRef && this.spacerRef.current;
+    if (this.desktop) {
+      sec.style.height = (100 + (cards.length - 1) * 44) + "vh";
+      pin.style.position = "sticky";
+      pin.style.top = "0";
+      pin.style.height = "100vh";
+      pin.style.overflow = "hidden";
+      pin.style.display = "flex";
+      pin.style.flexDirection = "column";
+      pin.style.justifyContent = "flex-start";
+      pin.style.paddingBottom = "0";
+      if (hdr) {
+        hdr.style.flex = "1 1 0";
+        hdr.style.alignItems = "center";
+        hdr.style.paddingTop = "0";
+        hdr.style.paddingBottom = "0";
+      }
+      if (sp) { sp.style.display = "block"; sp.style.flex = "1 1 0"; }
+      tr.style.flexDirection = "row";
+      tr.style.alignItems = "stretch";
+      tr.style.flex = "0 0 auto";
+      tr.style.marginTop = "clamp(16px, 4vh, 56px)";
+      tr.style.paddingBottom = "clamp(24px, 5vh, 64px)";
+      cards.forEach((c) => {
+        c.style.width = "min(58vw, 660px)";
+        c.style.flex = "0 0 auto";
+        c.style.height = "auto";
+        c.style.minHeight = "min(62vh, 560px)";
+        c.style.marginBottom = "0";
+      });
+      tr.lastElementChild && (tr.lastElementChild.style.borderRight = "2px solid var(--color-divider)");
+    } else {
+      sec.style.height = "auto";
+      pin.style.position = "static";
+      pin.style.height = "auto";
+      pin.style.overflow = "visible";
+      pin.style.paddingBottom = "0";
+      pin.style.display = "block";
+      if (hdr) {
+        hdr.style.flex = "";
+        hdr.style.alignItems = "baseline";
+        hdr.style.paddingTop = "";
+        hdr.style.paddingBottom = "";
+      }
+      if (sp) sp.style.display = "none";
+      tr.style.flexDirection = "column";
+      tr.style.alignItems = "stretch";
+      tr.style.marginTop = "0";
+      tr.style.flex = "0 0 auto";
+      tr.style.transform = "none";
+      tr.style.paddingBottom = "clamp(32px, 6vh, 64px)";
+      cards.forEach((c) => {
+        c.style.width = "100%";
+        c.style.flex = "0 0 auto";
+        c.style.height = "auto";
+        c.style.minHeight = "0";
+        c.style.borderRight = "2px solid var(--color-divider)";
+      });
+    }
+    this.sizePhoto();
+    this.update();
+  }
+
+  update() {
+    const sec = this.sectionRef && this.sectionRef.current;
+    const pin = this.pinRef && this.pinRef.current;
+    const tr = this.trackRef && this.trackRef.current;
+    const counter = this.counterRef && this.counterRef.current;
+    if (!sec || !pin || !tr) return;
+    if (!this.desktop) { if (counter) counter.style.opacity = "0"; return; }
+    if (counter) counter.style.opacity = "1";
+    const rect = sec.getBoundingClientRect();
+    const dist = rect.height - window.innerHeight;
+    let p = dist > 0 ? -rect.top / dist : 0;
+    p = Math.max(0, Math.min(1, p));
+    const max = Math.max(0, tr.scrollWidth - pin.clientWidth);
+    tr.style.transform = "translate3d(" + (-p * max).toFixed(2) + "px,0,0)";
+    const n = tr.children.length;
+    const active = Math.min(n - 1, Math.max(0, Math.round(p * (n - 1))));
+    const hdr = this.titleRef && this.titleRef.current;
+    if (hdr) {
+      const o = Math.max(0, 1 - p * 4);
+      hdr.style.opacity = o;
+      hdr.style.transform = "translateY(" + (-64 * (1 - o)).toFixed(1) + "px)";
+      hdr.style.transition = "none";
+    }
+    if (active !== this.state.active) this.setState({ active });
+  }
+
+  reveal() {
+    if (!("IntersectionObserver" in window)) return;
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        e.target.style.opacity = "1";
+        e.target.style.transform = "none";
+        this.io.unobserve(e.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    document.querySelectorAll("[data-reveal]").forEach((el) => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(18px)";
+      el.style.transition = "opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)";
+      this.io.observe(el);
+    });
+  }
+
+  submit = (e) => {
+    e.preventDefault();
+    const f = e.target;
+    const g = (k) => (f.elements[k] && f.elements[k].value ? f.elements[k].value.trim() : "");
+    const fr = this.state.lang === "fr";
+    const subject = (fr ? "Audit d'automatisation : " : "Automation audit: ") + (g("company") || g("name"));
+    const data = {
+      name: g("name"), email: g("email"), phone: g("phone"),
+      company: g("company"), sector: g("sector"), message: g("message"),
+      language: this.state.lang, _subject: subject, subject: subject
+    };
+    const key = this.props.web3formsKey || "3ef2cfed-c4ba-419b-809b-9d7c21197e36";
+    const endpoint = key ? "https://api.web3forms.com/submit" : (this.props.formEndpoint || "");
+    if (key) {
+      data.access_key = key;
+      data.from_name = "SendBetter website";
+      data.replyto = data.email;
+    }
+    if (endpoint) {
+      this.setState({ sending: true, error: false });
+      fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(data)
+      }).then((r) => {
+        if (!r.ok) throw new Error("bad status");
+        f.reset();
+        this.setState({ sending: false, sent: true, error: false });
+      }).catch(() => {
+        this.setState({ sending: false, error: true });
+      });
+      return;
+    }
+    const lines = [
+      (fr ? "Nom : " : "Name: ") + data.name,
+      (fr ? "Courriel : " : "Email: ") + data.email,
+      (fr ? "Téléphone : " : "Phone: ") + data.phone,
+      (fr ? "Entreprise : " : "Company: ") + data.company,
+      (fr ? "Type d'entreprise : " : "Type of business: ") + data.sector,
+      "",
+      data.message
+    ];
+    window.location.href = "mailto:michael@sendbetter.ai?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+    this.setState({ sent: true });
+  };
+
+  renderVals() {
+    const lang = this.state.lang === "fr" ? "fr" : "en";
+    const t = COPY[lang];
+    const dim = "color-mix(in srgb, var(--color-text) 45%, transparent)";
+    this.sectionRef = this.sectionRef || React.createRef();
+    this.pinRef = this.pinRef || React.createRef();
+    this.trackRef = this.trackRef || React.createRef();
+    this.counterRef = this.counterRef || React.createRef();
+    this.headerRef = this.headerRef || React.createRef();
+    this.titleRef = this.titleRef || React.createRef();
+    this.spacerRef = this.spacerRef || React.createRef();
+    this.photoRef = this.photoRef || React.createRef();
+    this.aboutTextRef = this.aboutTextRef || React.createRef();
+    const pad = (n) => (n < 10 ? "0" + n : "" + n);
+    const services = [0, 3, 4, 1, 2].map((i, idx) => Object.assign({}, t.services_list[i], { num: pad(idx + 1) }));
+    const cases = CASES.map((c, i) => {
+      const m = t.cases_meta[i];
+      return Object.assign({}, c, m, { unit: m.unitSuffix ? m.unit + " · " + m.unitSuffix : m.unit });
+    });
+    return {
+      t,
+      lang,
+      services,
+      cases,
+      steps: t.steps,
+      menuOpen: this.state.menuOpen,
+      menuLabel: this.state.menuOpen ? (lang === "fr" ? "Fermer" : "Close") : "Menu",
+      toggleMenu: this.toggleMenu,
+      closeMenu: this.closeMenu,
+      activeLabel: pad(this.state.active + 1) + " / " + pad(services.length),
+      enColor: lang === "en" ? "var(--color-accent)" : dim,
+      frColor: lang === "fr" ? "var(--color-accent)" : dim,
+      setEn: () => this.setLang("en"),
+      setFr: () => this.setLang("fr"),
+      photoRef: this.photoRef,
+      aboutTextRef: this.aboutTextRef,
+      submit: this.submit,
+      sent: this.state.sent,
+      sending: !!this.state.sending,
+      error: !!this.state.error,
+      sendLabel: this.state.sending ? t.form.sending : t.form.send,
+      sentMessage: t.form.sentDirect,
+      sectionRef: this.sectionRef,
+      pinRef: this.pinRef,
+      trackRef: this.trackRef,
+      counterRef: this.counterRef,
+      headerRef: this.headerRef,
+      titleRef: this.titleRef,
+      spacerRef: this.spacerRef
+    };
+  }
+}
+</script>
+</body>
+</html>
