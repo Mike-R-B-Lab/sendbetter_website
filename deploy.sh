@@ -25,13 +25,22 @@ fi
 git push -q origin main
 echo "pushed $(git rev-parse --short HEAD)"
 
-printf 'waiting for GitHub Pages build'
-for _ in $(seq 1 40); do
-  status=$(gh api "repos/$REPO/pages/builds/latest" --jq .status 2>/dev/null || echo "?")
-  [ "$status" = "built" ] && { echo " → built"; break; }
-  [ "$status" = "errored" ] && { echo " → ERRORED"; exit 1; }
+HEAD_SHA=$(git rev-parse HEAD)
+
+# Wait for a build OF THIS COMMIT. Checking status alone is not enough: the
+# previous commit's build is already "built", so it would pass instantly.
+printf 'waiting for GitHub Pages build of %s' "${HEAD_SHA:0:7}"
+built=""
+for _ in $(seq 1 60); do
+  read -r bstatus bsha <<<"$(gh api "repos/$REPO/pages/builds/latest" \
+      --jq '"\(.status) \(.commit)"' 2>/dev/null || echo "? ?")"
+  if [ "$bsha" = "$HEAD_SHA" ]; then
+    [ "$bstatus" = "built" ]   && { echo " → built"; built=1; break; }
+    [ "$bstatus" = "errored" ] && { echo " → ERRORED"; exit 1; }
+  fi
   printf '.'; sleep 5
 done
+[ -n "$built" ] || { echo " → timed out waiting for this commit to build"; exit 1; }
 
 # Compare what Cloudflare serves against GitHub's own copy. Equal = fully live.
 origin=$(curl -sS --resolve "$DOMAIN:80:$ORIGIN_IP" "http://$DOMAIN/" | shasum | cut -d' ' -f1)
