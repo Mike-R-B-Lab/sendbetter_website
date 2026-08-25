@@ -11,7 +11,7 @@
 <title>SendBetter | Business Automation &amp; AI Systems</title>
 <meta name="description" content="SendBetter builds practical automation, AI agents and software systems that help businesses save time, respond faster and stop losing opportunities.">
 <meta property="og:title" content="SendBetter | Business Automation &amp; AI Systems">
-<meta property="og:description" content="I find the repetitive work inside your business and build the system that handles it. Built by Michael Laberge, Montreal.">
+<meta property="og:description" content="We find the repetitive work inside your business and build the system that handles it. Built by Michael Laberge, Montreal.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_CA">
 <meta property="og:image" content="assets/michael.jpeg">
@@ -230,13 +230,13 @@ const COPY = {
     nav: { services: "Services", work: "Work", about: "About", cta: "Free automation audit" },
     hero: {
       tag: "Automation & software systems",
-      title: "I save you time and make you money.",
-      sub: "I find the repetitive work inside your business and automate it: lead follow-up, phone calls, reviews, paperwork, and everything in between.",
+      title: "We save you time and make you money.",
+      sub: "We find the repetitive work inside your business and automate it: lead follow-up, phone calls, reviews, paperwork, and everything in between.",
       small: "SendBetter. Built by Michael Laberge, Montreal.",
       cta1: "Get a free automation audit",
-      cta2: "See what I build"
+      cta2: "See what we build"
     },
-    services: { title: "What I build" },
+    services: { title: "What we build" },
     how: {
       title: "Three steps."
     },
@@ -251,7 +251,7 @@ const COPY = {
     },
     contact: {
       title: "Losing time on repetitive work?",
-      sub: "Tell me what's taking too much time, costing you leads, or getting done manually. I'll tell you whether I can automate it.",
+      sub: "Tell us what's taking too much time, costing you leads, or getting done manually. We'll tell you whether we can automate it.",
       callLabel: "Call Michael"
     },
     form: {
@@ -260,13 +260,13 @@ const COPY = {
       message: "What's taking too much time?",
       send: "Get a free automation audit",
       sending: "Sending…",
-      error: "Something went wrong. Email me at michael@sendbetter.ai.",
-      sentDirect: "Thanks. I'll reply within a day.",
-      sent: "Opening your email. Send it and I'll reply within a day."
+      error: "Something went wrong. Email us at michael@sendbetter.ai.",
+      sentDirect: "Thanks. We'll reply within a day.",
+      sent: "Opening your email. Send it and we'll reply within a day."
     },
     steps: [
       { num: "01", title: "Find the bottleneck", body: "We look at where time, leads, or money are being lost." },
-      { num: "02", title: "Build the system", body: "I design and implement the automation around the tools you already use." },
+      { num: "02", title: "Build the system", body: "We design and implement the automation around the tools you already use." },
       { num: "03", title: "Hand it over", body: "You get the working system, documentation, and training if you want it." }
     ],
     services_list: [
@@ -301,13 +301,13 @@ const COPY = {
     nav: { services: "Services", work: "Réalisations", about: "À propos", cta: "Audit gratuit" },
     hero: {
       tag: "Automatisation & systèmes logiciels",
-      title: "Je vous fais gagner du temps et de l'argent.",
-      sub: "Je trouve le travail répétitif dans votre entreprise et je l'automatise : relance des leads, appels manqués, avis Google, paperasse, et tout le reste.",
+      title: "Nous vous faisons gagner du temps et de l'argent.",
+      sub: "Nous trouvons le travail répétitif dans votre entreprise et nous l'automatisons : relance des leads, appels manqués, avis Google, paperasse, et tout le reste.",
       small: "SendBetter. Bâti par Michael Laberge, Montréal.",
       cta1: "Obtenir un audit gratuit",
-      cta2: "Voir ce que je bâtis"
+      cta2: "Voir ce que nous bâtissons"
     },
-    services: { title: "Ce que je bâtis" },
+    services: { title: "Ce que nous bâtissons" },
     how: {
       title: "Trois étapes."
     },
@@ -322,7 +322,7 @@ const COPY = {
     },
     contact: {
       title: "Du temps perdu sur du travail répétitif?",
-      sub: "Dites-moi ce qui prend trop de temps, ce qui vous coûte des leads, ou ce qui se fait encore à la main. Je vous dis si je peux l'automatiser.",
+      sub: "Dites-nous ce qui prend trop de temps, ce qui vous coûte des leads, ou ce qui se fait encore à la main. Nous vous disons si nous pouvons l'automatiser.",
       callLabel: "Appeler Michael"
     },
     form: {
@@ -331,13 +331,13 @@ const COPY = {
       message: "Qu'est-ce qui prend trop de temps?",
       send: "Obtenir un audit gratuit",
       sending: "Envoi…",
-      error: "Une erreur est survenue. Écrivez-moi à michael@sendbetter.ai.",
-      sentDirect: "Merci. Je réponds en moins d'une journée.",
-      sent: "Votre courriel s'ouvre. Envoyez-le et je réponds en moins d'une journée."
+      error: "Une erreur est survenue. Écrivez-nous à michael@sendbetter.ai.",
+      sentDirect: "Merci. Nous répondons en moins d'une journée.",
+      sent: "Votre courriel s'ouvre. Envoyez-le et nous répondons en moins d'une journée."
     },
     steps: [
       { num: "01", title: "Trouver le goulot", body: "On regarde où le temps, les leads ou l'argent se perdent." },
-      { num: "02", title: "Bâtir le système", body: "Je conçois et j'implante l'automatisation autour des outils que vous utilisez déjà." },
+      { num: "02", title: "Bâtir le système", body: "Nous concevons et implantons l'automatisation autour des outils que vous utilisez déjà." },
       { num: "03", title: "Vous le remettre", body: "Vous repartez avec le système fonctionnel, la documentation, et la formation si vous la voulez." }
     ],
     services_list: [
@@ -497,9 +497,9 @@ class Component extends DCLogic {
       }
       if (sp) { sp.style.display = "block"; sp.style.flex = "1 1 0"; }
       const how2 = document.querySelector('[aria-label="How it works"]');
-      if (how2) how2.style.paddingTop = "";
-      tr.querySelectorAll("ul li").forEach((li) => { li.style.fontSize = ""; li.style.padding = ""; });
-      tr.querySelectorAll("ul").forEach((ul) => { ul.style.gap = ""; });
+      if (how2) how2.style.paddingTop = "clamp(56px, 9vh, 110px)";
+      tr.querySelectorAll("ul li").forEach((li) => { li.style.fontSize = "12px"; li.style.padding = "7px 10px"; });
+      tr.querySelectorAll("ul").forEach((ul) => { ul.style.gap = "8px"; });
       tr.style.flexDirection = "row";
       tr.style.alignItems = "stretch";
       tr.style.flex = "0 0 auto";
