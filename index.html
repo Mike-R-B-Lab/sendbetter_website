@@ -25,6 +25,22 @@ body { margin: 0; overflow-x: hidden; }
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--color-text) 25%, transparent); }
 input::placeholder, textarea::placeholder { color: color-mix(in srgb, var(--color-text) 35%, transparent); font-size: 14px; }
+
+/* Work delivered, stacked layout. Side by side, a rule above each stat reads
+   as part of that card. Once the cards stack, the same rule reads as a divider
+   BETWEEN companies, so the stat below it looks like it belongs to the next
+   one. Stacked, move the rule to between the cards instead. !important is
+   required because the section is styled inline; the single column is forced
+   so this breakpoint governs rather than wherever auto-fit happens to wrap. */
+@media (max-width: 600px) {
+  #work > div { grid-template-columns: 1fr !important; }
+  #work article > div:nth-of-type(2) {
+    border-top: 0 !important; padding-top: 0 !important; margin-top: 2px !important;
+  }
+  #work article:not(:last-of-type) {
+    border-bottom: 2px solid var(--color-divider) !important; padding-bottom: 24px !important;
+  }
+}
 </style>
 </helmet>
 
