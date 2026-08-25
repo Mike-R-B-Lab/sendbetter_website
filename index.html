@@ -42,7 +42,7 @@ input::placeholder, textarea::placeholder { color: color-mix(in srgb, var(--colo
           <span aria-hidden="true" style="opacity: .35;">/</span>
           <button type="button" onClick="{{ setFr }}" aria-label="Français" style="background: none; border: 0; padding: 2px 2px; cursor: pointer; font: inherit; color: {{ frColor }};">FR</button>
         </div>
-        <a class="btn btn-primary" href="#contact" style="padding: 10px 16px; font-size: 13px;">{{ t.nav.cta }}</a>
+        <a class="btn btn-primary" href="#contact" data-navcta="1" style="padding: 10px 16px; font-size: 13px;">{{ t.nav.cta }}</a>
         <button type="button" data-menutoggle="1" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpen }}" aria-controls="mobile-menu" style="display: none; background: none; border: 0; padding: 4px 0 4px 4px; cursor: pointer; font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text);">{{ menuLabel }}</button>
       </nav>
     </div>
@@ -50,7 +50,8 @@ input::placeholder, textarea::placeholder { color: color-mix(in srgb, var(--colo
       <nav id="mobile-menu" aria-label="Mobile" style="border-top: 2px solid var(--color-divider); padding: 6px clamp(20px, 5vw, 64px) 14px; display: flex; flex-direction: column;">
         <a href="#services" onClick="{{ closeMenu }}" style="padding: 14px 0; border-bottom: 1px solid color-mix(in srgb, var(--color-text) 18%, transparent); font-family: var(--font-heading); font-weight: 800; font-size: 18px; letter-spacing: -0.02em; color: var(--color-text); text-decoration: none;">{{ t.nav.services }}</a>
         <a href="#work" onClick="{{ closeMenu }}" style="padding: 14px 0; border-bottom: 1px solid color-mix(in srgb, var(--color-text) 18%, transparent); font-family: var(--font-heading); font-weight: 800; font-size: 18px; letter-spacing: -0.02em; color: var(--color-text); text-decoration: none;">{{ t.nav.work }}</a>
-        <a href="#about" onClick="{{ closeMenu }}" style="padding: 14px 0; font-family: var(--font-heading); font-weight: 800; font-size: 18px; letter-spacing: -0.02em; color: var(--color-text); text-decoration: none;">{{ t.nav.about }}</a>
+        <a href="#about" onClick="{{ closeMenu }}" style="padding: 14px 0; border-bottom: 1px solid color-mix(in srgb, var(--color-text) 18%, transparent); font-family: var(--font-heading); font-weight: 800; font-size: 18px; letter-spacing: -0.02em; color: var(--color-text); text-decoration: none;">{{ t.nav.about }}</a>
+        <a class="btn btn-primary" href="#contact" onClick="{{ closeMenu }}" style="margin-top: 16px; padding: 14px 18px; font-size: 14px;">{{ t.nav.cta }}</a>
       </nav>
     </sc-if>
   </header>
@@ -113,7 +114,7 @@ input::placeholder, textarea::placeholder { color: color-mix(in srgb, var(--colo
 
     <section id="work" aria-label="Work" style="border-top: 2px solid var(--color-divider); padding: clamp(56px, 9vh, 110px) clamp(20px, 5vw, 64px); max-width: 1680px; margin: 0 auto;">
       <h2 data-reveal="1" style="font-size: clamp(28px, 3.6vw, 52px); letter-spacing: -0.03em; margin: 0 0 clamp(32px, 5vh, 56px); max-width: 26ch;">{{ t.work.title }}</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(24px, 2.6vw, 44px);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: clamp(24px, 2.6vw, 44px);">
         <sc-for list="{{ cases }}" as="c" hint-placeholder-count="4">
           <article data-reveal="1" style="padding: 0; display: flex; flex-direction: column; gap: 14px;">
             <div style="height: 88px; display: flex; align-items: center;">
@@ -137,7 +138,7 @@ input::placeholder, textarea::placeholder { color: color-mix(in srgb, var(--colo
     
 
     <section id="about" aria-label="About" style="border-top: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider); padding: clamp(56px, 9vh, 110px) clamp(20px, 5vw, 64px); max-width: 1680px; margin: 0 auto;">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(28px, 4vw, 64px); align-items: center;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: clamp(28px, 4vw, 64px); align-items: center;">
         
         <figure class="grayscale" data-reveal="1" ref="{{ photoRef }}" style="margin: 0; position: relative; min-height: 420px; overflow: hidden; background: var(--color-surface); height: 500px">
           <img src="assets/michael.jpeg" alt="Michael Laberge, founder of SendBetter, Montreal" loading="lazy" decoding="async" style="position: absolute; inset: 0; width: 553px; height: 517px; object-fit: contain; object-position: 50% 4%; left: 67px; top: -17px">
@@ -151,7 +152,7 @@ input::placeholder, textarea::placeholder { color: color-mix(in srgb, var(--colo
         </div>
       </div>
     </section><section id="contact" aria-label="Contact" style="padding: clamp(56px, 9vh, 110px) clamp(20px, 5vw, 64px); max-width: 1680px; margin: 0 auto;">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: clamp(40px, 6vw, 120px); align-items: start;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: clamp(40px, 6vw, 120px); align-items: start;">
         <div>
           <h2 data-reveal="1" style="font-size: clamp(30px, 4.2vw, 62px); line-height: 1.03; letter-spacing: -0.035em; margin: 0 0 24px; max-width: 15ch;">{{ t.contact.title }}</h2>
           <p style="margin: 0 0 32px; font-size: 17px; line-height: 1.6; max-width: 46ch; color: color-mix(in srgb, var(--color-text) 78%, transparent);">{{ t.contact.sub }}</p>
@@ -168,7 +169,7 @@ input::placeholder, textarea::placeholder { color: color-mix(in srgb, var(--colo
         </div>
 
         <form onSubmit="{{ submit }}" style="display: grid; gap: 0;">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); column-gap: clamp(24px, 3vw, 48px);">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); column-gap: clamp(24px, 3vw, 48px);">
             <label style="display: grid; gap: 4px; padding: 16px 0 12px; border-bottom: 2px solid var(--color-divider);">
             <span style="font-family: var(--font-heading); font-weight: 800; font-size: 10.5px; letter-spacing: 0.13em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent);">{{ t.form.name }}</span>
             <input name="name" type="text" required="required" autoComplete="name" style="width: 100%; border: 0; background: transparent; padding: 4px 0; font-family: var(--font-body); font-size: 15px; color: var(--color-text);">
@@ -372,7 +373,7 @@ const COPY = {
 
 const CASES = [
   { name: "Élia Médico Esthétique", value: "15 → 80", logo: "assets/elia.png", logoBg: "transparent", logoPad: "0" },
-  { name: "Attorre & Fils", value: "10 h", logo: "assets/attorre.jpg", logoBg: "#fff", logoPad: "12px" },
+  { name: "Attorre & Fils", value: "20 h", logo: "assets/attorre.jpg", logoBg: "#fff", logoPad: "12px" },
   { name: "Apollo Scooters", value: "600 → 15", logo: "assets/apollo.png", logoBg: "transparent", logoPad: "0" },
   { name: "Mentors Éducation", value: "2", logo: "assets/mentors.jpeg", logoBg: "transparent", logoPad: "0" }
 ];
@@ -429,6 +430,7 @@ class Component extends DCLogic {
       const wide = window.innerWidth >= 760;
       document.querySelectorAll("[data-navlink]").forEach((a) => { a.style.display = wide ? "inline" : "none"; });
       document.querySelectorAll("[data-menutoggle]").forEach((b) => { b.style.display = wide ? "none" : "inline-flex"; });
+      document.querySelectorAll("[data-navcta]").forEach((b) => { b.style.display = wide ? "inline-flex" : "none"; });
       if (wide && this.state.menuOpen) this.setState({ menuOpen: false });
     };
     this.onNavResize();
@@ -439,7 +441,33 @@ class Component extends DCLogic {
   closeMenu = () => this.setState({ menuOpen: false });
 
   sizePhoto() {
-    return;
+    const fig = this.photoRef && this.photoRef.current;
+    if (!fig) return;
+    const img = fig.querySelector("img");
+    if (!img) return;
+    if (window.innerWidth < 760) {
+      // scale the desktop crop box (553x517 shown through a 500px-tall frame) to the column
+      const w = fig.clientWidth || fig.getBoundingClientRect().width;
+      if (!w) return;
+      const k = w / 553;
+      fig.style.height = Math.round(452 * k) + "px";
+      fig.style.minHeight = "0";
+      img.style.width = Math.round(553 * k) + "px";
+      img.style.height = Math.round(517 * k) + "px";
+      img.style.left = Math.round(2 * k) + "px";
+      img.style.top = Math.round(-14 * k) + "px";
+      img.style.objectFit = "contain";
+      img.style.objectPosition = "50% 4%";
+    } else {
+      fig.style.height = "500px";
+      fig.style.minHeight = "420px";
+      img.style.width = "553px";
+      img.style.height = "517px";
+      img.style.left = "2px";
+      img.style.top = "0px";
+      img.style.objectFit = "contain";
+      img.style.objectPosition = "50% 4%";
+    }
   }
 
   layout() {
@@ -468,6 +496,10 @@ class Component extends DCLogic {
         hdr.style.paddingBottom = "0";
       }
       if (sp) { sp.style.display = "block"; sp.style.flex = "1 1 0"; }
+      const how2 = document.querySelector('[aria-label="How it works"]');
+      if (how2) how2.style.paddingTop = "";
+      tr.querySelectorAll("ul li").forEach((li) => { li.style.fontSize = ""; li.style.padding = ""; });
+      tr.querySelectorAll("ul").forEach((ul) => { ul.style.gap = ""; });
       tr.style.flexDirection = "row";
       tr.style.alignItems = "stretch";
       tr.style.flex = "0 0 auto";
@@ -495,12 +527,22 @@ class Component extends DCLogic {
         hdr.style.paddingBottom = "";
       }
       if (sp) sp.style.display = "none";
+      const ttl = this.titleRef && this.titleRef.current;
+      if (ttl) { ttl.style.opacity = "1"; ttl.style.transform = "none"; }
+      if (hdr) hdr.style.paddingTop = "clamp(34px, 5vh, 48px)";
+      const how = document.querySelector('[aria-label="How it works"]');
+      if (how) how.style.paddingTop = "clamp(32px, 4.5vh, 48px)";
+      tr.querySelectorAll("ul li").forEach((li) => {
+        li.style.fontSize = "11px";
+        li.style.padding = "6px 8px";
+      });
+      tr.querySelectorAll("ul").forEach((ul) => { ul.style.gap = "6px"; });
       tr.style.flexDirection = "column";
       tr.style.alignItems = "stretch";
-      tr.style.marginTop = "0";
+      tr.style.marginTop = "clamp(8px, 2vh, 20px)";
       tr.style.flex = "0 0 auto";
       tr.style.transform = "none";
-      tr.style.paddingBottom = "clamp(32px, 6vh, 64px)";
+      tr.style.paddingBottom = "clamp(18px, 2.5vh, 30px)";
       cards.forEach((c) => {
         c.style.width = "100%";
         c.style.flex = "0 0 auto";
@@ -617,7 +659,7 @@ class Component extends DCLogic {
     this.photoRef = this.photoRef || React.createRef();
     this.aboutTextRef = this.aboutTextRef || React.createRef();
     const pad = (n) => (n < 10 ? "0" + n : "" + n);
-    const services = [0, 3, 4, 1, 2].map((i, idx) => Object.assign({}, t.services_list[i], { num: pad(idx + 1) }));
+    const services = [3, 4, 0, 1, 2].map((i, idx) => Object.assign({}, t.services_list[i], { num: pad(idx + 1) }));
     const cases = CASES.map((c, i) => {
       const m = t.cases_meta[i];
       return Object.assign({}, c, m, { unit: m.unitSuffix ? m.unit + " · " + m.unitSuffix : m.unit });
