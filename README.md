@@ -21,6 +21,17 @@ python3 -m http.server 8765
 
 Then open http://localhost:8765. It is fully static — no build step.
 
+## Deploying
+
+```
+./deploy.sh "what changed"
+```
+
+Commits, pushes, waits for the Pages build, then waits until sendbetter.ai
+actually serves the new bytes. Cloudflare caches the HTML at its edge, so a
+push is live a minute or two after GitHub reports success -- the script waits
+for the real thing rather than the build.
+
 ## Notes
 
 The contact form posts to Web3Forms. Its access key is a public client-side
